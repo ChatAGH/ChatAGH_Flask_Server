@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from chat_agh.graph import ChatGraph
 from chat_agh.utils.chat_history import ChatHistory
 
-load_dotenv(".env.template")
+load_dotenv(".env")
 
 app = Flask(__name__)
 chat_graph = ChatGraph()
