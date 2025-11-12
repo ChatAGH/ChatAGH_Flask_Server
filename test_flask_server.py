@@ -1,6 +1,6 @@
 import requests
 
-API_URL = "http://localhost:8000/api/chat"
+HOST = "http://localhost:8000/api/chat"
 
 if __name__ == "__main__":
     payload = {
@@ -9,10 +9,9 @@ if __name__ == "__main__":
         ]
     }
 
-    response = requests.post(API_URL, json=payload)
+    response = requests.post(HOST, json=payload)
 
     if response.status_code == 200:
-        data = response.json()
-        print("✅ Response:", data["response"])
+        print("Response:", response.json())
     else:
-        print("❌ Error:", response.status_code, response.text)
+        print("Error:", response.status_code, response.text)

@@ -78,9 +78,7 @@ def chat() -> Any:
         messages = parse_messages(payload)
 
         chat_history = ChatHistory(messages=messages)
-        result = chat_graph.invoke(
-            chat_history,
-        )
+        result = chat_graph.invoke(chat_history)
 
         text = extract_text(result).strip()
         if not text:
@@ -89,9 +87,9 @@ def chat() -> Any:
 
     except BadRequest as e:
         return jsonify({"error": str(e)}), 400
-    except Exception:
-        return jsonify({"error": "Internal server error"}), 500
+    except Exception as e:
+        return jsonify({"error": f"Internal server error: {e}"}), 500
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000, debug=True)
+    app.run(host="0.0.0.0", port=8001, debug=True)

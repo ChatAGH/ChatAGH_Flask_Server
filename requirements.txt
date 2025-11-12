@@ -1,3 +1,5 @@
 Flask>=3.0
 langchain-core>=0.2
 python-dotenv>=1.2.0
+gunicorn>=21.2.0
+git+https://github.com/ChatAGH/ChatAGH_RAG.git
