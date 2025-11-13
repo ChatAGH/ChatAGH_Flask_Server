@@ -10,8 +10,11 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+RUN python -m nltk.downloader punkt punkt_tab -d /root/nltk_data
+ENV NLTK_DATA=/root/nltk_data
+
 COPY . .
 
 EXPOSE 8000
 
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8000", "--workers", "1", "--timeout", "120"]
+CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8000", "--workers", "4", "--timeout", "120"]

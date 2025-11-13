@@ -5,7 +5,7 @@ HOST = "http://localhost:8000/api/chat"
 if __name__ == "__main__":
     payload = {
         "messages": [
-            {"role": "user", "content": "Kiedy zaczyna się rekrutacja na AGH?"}
+            {"role": "user", "content": "Jak zostać studentem AGH?"}
         ]
     }
 
